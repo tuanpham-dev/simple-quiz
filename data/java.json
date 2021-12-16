@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Does Java support multiple level inheritance?",
+    "answers": [
+      {
+        "title": "True",
+        "isCorrect":  true,
+        "explanation": ""
+      },
+      {
+        "title": "False",
+        "isCorrect":  false,
+        "explanation": ""
+      }
+    ]
+  },
+  {
+    "title": "Which statement will empty the contents of a StringBuilder variable named sb?",
+    "answers": [
+      {
+        "title": "sb.deleteAll();",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "sb.delete(0, sb.size());",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "sb.delete(0, sb.length());",
+        "isCorrect":  true,
+        "explanation": ""
+      },
+      {
+        "title": "sb.removeAll();",
+        "isCorrect":  false,
+        "explanation": ""
+      }
+    ]
+  },
+  {
+    "title": "Which statement is true about the switch statement?",
+    "answers": [
+      {
+        "title": "It must contain the default section.",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "The break statement, at the end of each case block, is mandatory.",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "Its case label literals can be changed at runtime",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "Its expression must evaluate to a single value",
+        "isCorrect":  true,
+        "explanation": ""
+      }
+    ]
+  },
+  {
+    "title": "How do you insert COMMENTS in Java code",
+    "answers": [
+      {
+        "title": "/* This is a comment */",
+        "isCorrect":  true,
+        "explanation": ""
+      },
+      {
+        "title": "// This is a comment",
+        "isCorrect":  true,
+        "explanation": ""
+      },
+      {
+        "title": "# This is a comment",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "\\ This is a comment",
+        "isCorrect":  false,
+        "explanation": ""
+      }
+    ]
+  }
+]
