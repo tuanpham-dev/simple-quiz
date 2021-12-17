@@ -88,5 +88,40 @@
         "explanation": ""
       }
     ]
+  },
+  {
+    "title": "Given the following. What is the result? \n[code]\nint []a = {1,2,3,4,5,6};\nint i = a.length - 1;\n\nwhile(i>=0) {\n    System.out.print(a[i]);\n    i--;\n}\n[/code]",
+    "answers": [
+      {
+        "title": "An exception could be thrown at runtime.",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "654321",
+        "isCorrect":  true,
+        "explanation": ""
+      },
+      {
+        "title": "12345",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "65432",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "123456",
+        "isCorrect":  false,
+        "explanation": ""
+      },
+      {
+        "title": "Nothing",
+        "isCorrect":  false,
+        "explanation": ""
+      }
+    ]
   }
 ]
