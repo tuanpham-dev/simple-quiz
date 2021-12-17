@@ -69,10 +69,10 @@ public class Quiz {
         if (Double.compare(score, 1) == 0) {
             message = "Perfect! Keep up the good work!";
             color = Console.ANSI_GREEN;
-        } else if (score > 0.8) {
+        } else if (score >= 0.8) {
             message = "You're good! Just one more step to be a ninja.";
             color = Console.ANSI_PURPLE;
-        } else if (score > 0.5) {
+        } else if (score >= 0.5) {
             message = "Not bad! Keep trying harder!";
             color = Console.ANSI_YELLOW;
         } else {
