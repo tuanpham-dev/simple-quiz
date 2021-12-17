@@ -44,11 +44,11 @@ public class QuizQuestion {
 
     public void printQuestion() {
         System.out.println();
-        System.out.println(question.getTitle());
+        System.out.println(Console.format(question.getTitle()));
         int index = 1;
 
         for (Answer answer : question.getAnswers()) {
-            System.out.printf("  %d) %s\n", index++, answer.getTitle());
+            System.out.printf("  %d) %s\n", index++, Console.format(answer.getTitle()));
         }
     }
 
@@ -61,15 +61,15 @@ public class QuizQuestion {
         String color = isCorrect ? Console.ANSI_GREEN : Console.ANSI_RED;
 
         System.out.println();
-        System.out.printf(Console.colorize("%d. %s\n", color), counter, question.getTitle());
+        System.out.printf(Console.colorize("%d. %s\n", color), counter, Console.format(question.getTitle(), color));
         System.out.println("> Your answer is:");
 
         for (Answer answer : userAnswers) {
-            System.out.printf("  - %s\n", answer.getTitle());
+            System.out.printf("  - %s\n", Console.format(answer.getTitle()));
 
             if (!answer.getExplanation().isBlank()) {
                 System.out.print("  | ");
-                System.out.println(Console.colorize(answer.getExplanation(), Console.ANSI_YELLOW));
+                System.out.println(Console.colorize(Console.format(answer.getExplanation(), Console.ANSI_YELLOW), Console.ANSI_YELLOW));
             }
         }
 
@@ -80,7 +80,7 @@ public class QuizQuestion {
 
                 if (!answer.getExplanation().isBlank()) {
                     System.out.print("  | ");
-                    System.out.println(Console.colorize(answer.getExplanation(), Console.ANSI_CYAN));
+                    System.out.println(Console.colorize(Console.format(answer.getExplanation(), Console.ANSI_CYAN), Console.ANSI_CYAN));
                 }
             }
         }
