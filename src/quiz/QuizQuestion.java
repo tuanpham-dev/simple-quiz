@@ -66,12 +66,22 @@ public class QuizQuestion {
 
         for (Answer answer : userAnswers) {
             System.out.printf("  - %s\n", answer.getTitle());
+
+            if (!answer.getExplanation().isBlank()) {
+                System.out.print("  | ");
+                System.out.println(Console.colorize(answer.getExplanation(), Console.ANSI_YELLOW));
+            }
         }
 
         if (!isCorrect) {
             System.out.println("> Correct answer is:");
             for (Answer answer : question.getCorrectAnswers()) {
                 System.out.printf("  - %s\n", answer.getTitle());
+
+                if (!answer.getExplanation().isBlank()) {
+                    System.out.print("  | ");
+                    System.out.println(Console.colorize(answer.getExplanation(), Console.ANSI_CYAN));
+                }
             }
         }
     }
