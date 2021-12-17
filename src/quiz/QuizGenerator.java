@@ -1,8 +1,8 @@
 package quiz;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class QuizGenerator {
     private final List<Question> questions;
@@ -14,16 +14,8 @@ public class QuizGenerator {
     public Quiz generate(int maxQuestions) {
         Collections.shuffle(questions);
 
-        List<QuizQuestion> quizQuestions = new ArrayList<>();
-        int i = 0;
-
-        for (Question question : questions) {
-            if (++i > questions.size()) {
-                break;
-            }
-
-            quizQuestions.add(new QuizQuestion(question));
-        }
+        List<QuizQuestion> quizQuestions = questions.subList(0, Math.min(maxQuestions, questions.size()))
+                .stream().map(QuizQuestion::new).collect(Collectors.toList());
 
         return new Quiz(quizQuestions);
     }
