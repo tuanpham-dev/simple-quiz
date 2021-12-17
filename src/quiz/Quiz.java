@@ -103,6 +103,8 @@ public class Quiz {
         QuizQuestion currentQuestion = currentQuestion();
 
         Console.clearScreen();
+        System.out.printf("\nQuestion (%d/%d)\n", questionIndex + 1, questions.size());
+        System.out.println("-------------------------");
         currentQuestion.printQuestion();
         System.out.println("\n(blank - next question, 0 - previous question, 1-4 - answer/update answer)");
 
