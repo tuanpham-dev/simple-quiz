@@ -70,12 +70,12 @@
       {
         "title": "/* This is a comment */",
         "isCorrect":  true,
-        "explanation": ""
+        "explanation": "Multi-line comments start with /* and ends with */. Any text between /* and */ will be ignored by Java."
       },
       {
         "title": "// This is a comment",
         "isCorrect":  true,
-        "explanation": ""
+        "explanation": "Single-line comments start with two forward slashes (//). Any text between // and the end of the line is ignored by Java (will not be executed)."
       },
       {
         "title": "# This is a comment",
