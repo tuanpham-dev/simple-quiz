@@ -52,6 +52,7 @@ public class Quiz {
         scanner.nextLine();
         Console.clearScreen();
         System.out.println("\nSummary");
+        System.out.println("-------------------------");
         int index = 0;
         for (QuizQuestion question : questions) {
             question.printSummary(++index);
