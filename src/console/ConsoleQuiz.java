@@ -55,7 +55,7 @@ public class ConsoleQuiz extends Quiz<ConsoleQuizQuestion> {
 
     private void printNavigationHint() {
         ConsoleQuizQuestion question = getCurrentQuestion();
-        System.out.printf("\n(blank - next question, 0 - previous question, 1-%d - answer/update answer\n", question.getTotalAnswers());
+        System.out.printf("\n(blank - next question, 0 - previous question, 1-%d - answer/update answer)\n", question.getTotalAnswers());
     }
 
     private void promptAnswer() {

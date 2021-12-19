@@ -49,7 +49,7 @@ public class ConsoleClient extends Client {
     private int promptMenu() {
         System.out.println("What do you want to do?");
         System.out.println("  1) Take Quiz");
-        System.out.println("  2) Quit");
+        System.out.println("  0) Quit");
         System.out.print("\nI want to: ");
 
         return scanner.nextInt();
