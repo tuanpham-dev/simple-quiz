@@ -43,8 +43,8 @@ public class Console {
                         output.append('\n');
                     }
 
-                    output.append(String.format(Console.colorize("%02d |", Console.ANSI_YELLOW)
-                            + Console.colorize("  %s", Console.ANSI_CYAN), lineNumber++, line));
+                    output.append(String.format(colorize("%02d |", ANSI_YELLOW)
+                            + colorize("  %s", Console.ANSI_CYAN), lineNumber++, line));
                 }
             } else {
                 if (line.compareTo("[code]") == 0) {

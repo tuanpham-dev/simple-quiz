@@ -14,41 +14,52 @@ import java.util.List;
 import static java.lang.System.exit;
 
 public class JsonDatabaseLoader implements DatabaseLoader {
-    // TODO: JSON file path should be dynamic
-    public static final Path filePath = Path.of("data/java.json");
+    public String filePath = "data/java.json";
 
     @Override
     public List<Question> loadData() {
         List<Question> questions = new ArrayList<>();
+        JSONArray data = loadFileContents();
 
-        try {
-            String contents = Files.readString(filePath);
-            JSONArray data = new JSONArray(contents);
+        if (data == null) {
+            return questions;
+        }
 
-            for (int i = 0; i < data.length(); i++) {
-                JSONObject dataQuestion = data.getJSONObject(i);
-                String questionTitle = dataQuestion.getString("title");
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject dataQuestion = data.getJSONObject(i);
+            String title = dataQuestion.getString("title");
+            List<Answer> answers = getAnswersFromQuestion(dataQuestion);
 
-                List<Answer> answers = new ArrayList<>();
-                JSONArray dataAnswers = dataQuestion.getJSONArray("answers");
-
-                for (int j = 0; j < dataAnswers.length(); j++) {
-                    JSONObject dataAnswer = dataAnswers.getJSONObject(j);
-
-                    String answerTitle = dataAnswer.getString("title");
-                    boolean answerIsCorrect = dataAnswer.getBoolean("isCorrect");
-                    String answerExplanation = dataAnswer.getString("explanation");
-
-                    answers.add(new Answer(answerTitle, answerIsCorrect, answerExplanation));
-                }
-
-                questions.add(new Question(questionTitle, answers));
-            }
-        } catch (IOException e) {
-            System.err.println("database.json file not found!");
-            exit(1);
+            questions.add(new Question(title, answers));
         }
 
         return questions;
+    }
+
+    private List<Answer> getAnswersFromQuestion(JSONObject dataQuestion) {
+        JSONArray dataAnswers = dataQuestion.getJSONArray("answers");
+        List<Answer> answers = new ArrayList<>();
+
+        for (int i = 0; i < dataAnswers.length(); i++) {
+            JSONObject dataAnswer = dataAnswers.getJSONObject(i);
+
+            String title = dataAnswer.getString("title");
+            boolean isCorrect = dataAnswer.getBoolean("isCorrect");
+            String explanation = dataAnswer.getString("explanation");
+
+            answers.add(new Answer(title, isCorrect, explanation));
+        }
+
+        return answers;
+    }
+
+    private JSONArray loadFileContents() {
+        try {
+            String contents = Files.readString(Path.of(filePath));
+
+            return new JSONArray(contents);
+        } catch (IOException ignored) {}
+
+        return null;
     }
 }

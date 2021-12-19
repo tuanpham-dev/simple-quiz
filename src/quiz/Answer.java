@@ -1,6 +1,10 @@
 package quiz;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Answer {
+
     private final String title;
     private final boolean isCorrect;
     private final String explanation;

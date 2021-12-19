@@ -4,11 +4,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class Question {
     private final String title;
-    private final boolean multipleChoice;
     private final List<Answer> answers;
     private final Set<Answer> correctAnswers;
 
@@ -18,15 +16,10 @@ public class Question {
 
         correctAnswers = new HashSet<>();
         answers.stream().filter(Answer::isCorrect).forEach(correctAnswers::add);
-        multipleChoice = correctAnswers.size() > 1;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public boolean isMultipleChoice() {
-        return multipleChoice;
     }
 
     public List<Answer> getAnswers() {
@@ -35,6 +28,10 @@ public class Question {
 
     public Set<Answer> getCorrectAnswers() {
         return correctAnswers;
+    }
+
+    public boolean isMultipleChoice() {
+        return correctAnswers.size() > 1;
     }
 
     public void shuffleAnswers() {

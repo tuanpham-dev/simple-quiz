@@ -1,7 +1,7 @@
 package console;
 
 public class Scanner {
-    public static java.util.Scanner instance;
+    private static java.util.Scanner instance;
 
     private Scanner() {}
 
