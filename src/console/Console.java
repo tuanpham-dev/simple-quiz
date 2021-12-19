@@ -38,11 +38,9 @@ public class Console {
                     }
 
                     isInsideCode = false;
+                    output.append("\n------------------------------");
                 } else {
-                    if (!(i == 1 && lines[0].compareTo("[code]") == 0)) {
-                        output.append('\n');
-                    }
-
+                    output.append('\n');
                     output.append(String.format(colorize("%02d |", ANSI_YELLOW)
                             + colorize("  %s", Console.ANSI_CYAN), lineNumber++, line));
                 }
@@ -50,6 +48,11 @@ public class Console {
                 if (line.compareTo("[code]") == 0) {
                     isInsideCode = true;
                     lineNumber = 1;
+
+                    if (i > 0) {
+                        output.append('\n');
+                    }
+                    output.append("------------------------------");
                 } else if (line.compareTo("[/code]") == 0) {
                     return text;
                 } else {

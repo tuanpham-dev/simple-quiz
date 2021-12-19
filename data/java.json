@@ -90,7 +90,7 @@
     ]
   },
   {
-    "title": "Given the following. What is the result? \n[code]\nint []a = {1,2,3,4,5,6};\nint i = a.length - 1;\n\nwhile(i>=0) {\n    System.out.print(a[i]);\n    i--;\n}\n[/code]",
+    "title": "Given the following.\n[code]\nint []a = {1,2,3,4,5,6};\nint i = a.length - 1;\n\nwhile(i>=0) {\n    System.out.print(a[i]);\n    i--;\n}\n[/code]\nWhat is the result?",
     "answers": [
       {
         "title": "An exception could be thrown at runtime.",
