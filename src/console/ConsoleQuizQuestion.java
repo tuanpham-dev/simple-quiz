@@ -12,7 +12,10 @@ public class ConsoleQuizQuestion extends QuizQuestion {
     public void printQuestion() {
         System.out.println();
         System.out.println(Console.format(getTitle()));
+        printAnswers();
+    }
 
+    private void printAnswers() {
         int listCounter = 1;
 
         for (Answer answer : getAnswers()) {
@@ -28,6 +31,14 @@ public class ConsoleQuizQuestion extends QuizQuestion {
         System.out.printf(Console.colorize("%d. %s\n", color), listCounter, Console.format(getTitle(), color));
         System.out.println("> Your answer is:");
 
+        printUserAnswers();
+
+        if (!isCorrect) {
+            printCorrectAnswers();
+        }
+    }
+
+    private void printUserAnswers() {
         for (Answer answer : getUserAnswers()) {
             System.out.printf("  - %s\n", Console.format(answer.getTitle()));
 
@@ -36,17 +47,19 @@ public class ConsoleQuizQuestion extends QuizQuestion {
                 System.out.println(Console.colorize(Console.format(answer.getExplanation(), Console.ANSI_YELLOW), Console.ANSI_YELLOW));
             }
         }
+    }
 
-        if (!isCorrect) {
-            System.out.println("> Correct answer is:");
-            for (Answer answer : getCorrectAnswers()) {
-                System.out.printf("  - %s\n", answer.getTitle());
+    private void printCorrectAnswers() {
+        System.out.println("> Correct answer is:");
+        for (Answer answer : getCorrectAnswers()) {
+            System.out.printf("  - %s\n", answer.getTitle());
 
-                if (!answer.getExplanation().isBlank()) {
-                    System.out.print("  | ");
-                    System.out.println(Console.colorize(Console.format(answer.getExplanation(), Console.ANSI_CYAN), Console.ANSI_CYAN));
-                }
+            if (!answer.getExplanation().isBlank()) {
+                System.out.print("  | ");
+                System.out.println(Console.colorize(Console.format(answer.getExplanation(), Console.ANSI_CYAN), Console.ANSI_CYAN));
             }
         }
     }
+
+
 }

@@ -1,31 +1,31 @@
 package quiz;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class QuizQuestion {
     private final Question question;
     private final Set<Answer> userAnswers;
+    private final List<Answer> answers;
     private boolean isAnswered;
 
     public QuizQuestion(Question question) {
         this.question = question;
         userAnswers = new HashSet<>();
         isAnswered = false;
+        answers = new ArrayList<>(question.getAnswers());
 
-        question.shuffleAnswers();
+        Collections.shuffle(answers);
     }
 
     public String getTitle() {
         return question.getTitle();
     }
 
-    public List<Answer> getAnswers() {
-        return question.getAnswers();
+    public Iterable<Answer> getAnswers() {
+        return answers;
     }
 
-    public Set<Answer> getCorrectAnswers() {
+    public Iterable<Answer> getCorrectAnswers() {
         return question.getCorrectAnswers();
     }
 
@@ -46,11 +46,11 @@ public class QuizQuestion {
     }
 
     public int getTotalAnswers() {
-        return question.getAnswers().size();
+        return answers.size();
     }
 
     public void addUserAnswer(int answerIndex) {
-        Answer answer = question.getAnswers().get(answerIndex);
+        Answer answer = answers.get(answerIndex);
 
         userAnswers.add(answer);
     }

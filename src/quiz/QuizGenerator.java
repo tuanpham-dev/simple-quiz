@@ -11,15 +11,15 @@ public class QuizGenerator {
         this.questions = questions;
     }
 
-    public <S extends QuizQuestion,T extends Quiz<S>> T generate(int maxQuestions, QuizFactory<S, T> quizFactory) {
+    public <S extends QuizQuestion, T extends Quiz<S>> T generate(int maxQuestions, QuizFactory<S, T> quizFactory) {
         int numQuestionsToGet = Math.min(maxQuestions, questions.size());
         Collections.shuffle(questions);
 
         List<S> quizQuestions = questions.subList(0, numQuestionsToGet)
                 .stream()
-                .map(quizFactory::getQuizQuestion)
+                .map(quizFactory::newQuizQuestion)
                 .collect(Collectors.toList());
 
-        return quizFactory.getQuiz(quizQuestions);
+        return quizFactory.newQuiz(quizQuestions);
     }
 }

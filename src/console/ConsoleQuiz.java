@@ -67,29 +67,28 @@ public class ConsoleQuiz extends Quiz<ConsoleQuizQuestion> {
 
             if (isAnswerDone(answer)) {
                 nextQuestionOrFinish();
-
                 break;
-            } else {
-                int choice = Integer.parseInt(answer);
+            }
 
-                if (choice <= 0) {
-                    previousQuestion();
+            int choice = Integer.parseInt(answer);
+
+            if (choice <= 0) {
+                previousQuestion();
+                break;
+            }
+
+            if (choice <= (question.getTotalAnswers())) {
+                if (question.isAnswered()) {
+                    question.setAnswered(false);
+                }
+
+                question.addUserAnswer(choice - 1);
+
+                if (!question.isMultipleChoice()) {
+                    question.setAnswered(true);
+                    nextQuestionOrFinish();
+
                     break;
-                } else {
-                    if (choice <= (question.getTotalAnswers())) {
-                        if (question.isAnswered()) {
-                            question.setAnswered(false);
-                        }
-
-                        question.addUserAnswer(choice - 1);
-
-                        if (!question.isMultipleChoice()) {
-                            question.setAnswered(true);
-                            nextQuestionOrFinish();
-
-                            break;
-                        }
-                    }
                 }
             }
         }

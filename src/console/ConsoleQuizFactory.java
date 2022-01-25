@@ -7,12 +7,12 @@ import java.util.List;
 
 public class ConsoleQuizFactory extends QuizFactory<ConsoleQuizQuestion, ConsoleQuiz> {
     @Override
-    public ConsoleQuizQuestion getQuizQuestion(Question question) {
+    public ConsoleQuizQuestion newQuizQuestion(Question question) {
         return new ConsoleQuizQuestion(question);
     }
 
     @Override
-    public ConsoleQuiz getQuiz(List<ConsoleQuizQuestion> quizQuestions) {
+    public ConsoleQuiz newQuiz(List<ConsoleQuizQuestion> quizQuestions) {
         return new ConsoleQuiz(quizQuestions);
     }
 }
